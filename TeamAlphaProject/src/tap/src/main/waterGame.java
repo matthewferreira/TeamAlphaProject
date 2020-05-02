@@ -30,11 +30,12 @@ public class waterGame extends Canvas implements Runnable {
 	private Controller c;
 	private Textures text;
 	private Menu menu;
-	
+
 	public static enum STATE {
 		MENU,
 		GAME
 	};
+	
 	public static STATE State = STATE.MENU;
 	
 	private synchronized void start() //Starts thread
@@ -78,13 +79,16 @@ public class waterGame extends Canvas implements Runnable {
 		}
 		
 		addKeyListener(new KbInput(this));
+		addKeyListener(new KbInput(this));
 		this.addMouseListener(new MouseInput());
 		
 		text=new Textures(this);
 		
 		mc=new MainCharacter(200,200,text);
 		c=new Controller(this,text);
+		
 		menu = new Menu();
+		
 	}
 	
 	public void run()//game loop
@@ -128,7 +132,8 @@ public class waterGame extends Canvas implements Runnable {
 	
 	private void tick()//updates
 	{
-		if(State == STATE.GAME) {
+		if(State==STATE.GAME)
+		{
 		mc.tick();
 		c.tick();
 		}
@@ -146,12 +151,13 @@ public class waterGame extends Canvas implements Runnable {
 		Graphics graphic =bs.getDrawGraphics();
 		graphic.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		graphic.drawImage(bg,0,0,null);
-		
-		if(State == STATE.GAME) {
+		if(State==STATE.GAME)
+		{
 		mc.render(graphic);
 		c.render(graphic);
 		}
-		else if(State == STATE.MENU) {
+		else if(State==STATE.MENU)
+		{
 			menu.render(graphic);
 		}
 		graphic.dispose();
@@ -163,28 +169,30 @@ public class waterGame extends Canvas implements Runnable {
 	public void keyPressed(KeyEvent e)
 	{
 		int key = e.getKeyCode();
-		if(State == STATE.GAME) {
-		if(key==KeyEvent.VK_RIGHT) 
+		if(State==STATE.GAME)
 		{
-			mc.setVelocityX(5);
-		}
-		else if(key==KeyEvent.VK_LEFT)
-		{
-			mc.setVelocityX(-5);
-		}
-		else if(key==KeyEvent.VK_DOWN)
-		{
-			mc.setVelocityY(5);
-		}
-		else if(key==KeyEvent.VK_UP) 
-		{
-			mc.setVelocityY(-5);
-		}
-	    if(key==KeyEvent.VK_SPACE&&!currently_shooting)
-		{
-			currently_shooting=true;
-			c.addCoin(new Coin(mc.getX(),mc.getY(),text));
-		}
+			
+			if(key==KeyEvent.VK_RIGHT) 
+			{
+				mc.setVelocityX(5);
+			}
+			else if(key==KeyEvent.VK_LEFT)
+			{
+				mc.setVelocityX(-5);
+			}
+			else if(key==KeyEvent.VK_DOWN)
+			{
+				mc.setVelocityY(5);
+			}
+			else if(key==KeyEvent.VK_UP) 
+			{
+				mc.setVelocityY(-5);
+			}
+		    if(key==KeyEvent.VK_SPACE&&!currently_shooting)
+			{
+				currently_shooting=true;
+				c.addCoin(new Coin(mc.getX(),mc.getY(),text));
+			}
 		}
 	}
 	

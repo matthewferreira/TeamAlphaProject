@@ -2,6 +2,7 @@ package tap.src.main;
 
 import java.awt.Graphics;
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Controller {
 	
@@ -9,6 +10,8 @@ public class Controller {
 	private LinkedList<VendingMachine>vm=new LinkedList<VendingMachine>();
 	private LinkedList<Soda>s=new LinkedList<Soda>();
 	private LinkedList<WaterBottle>wb=new LinkedList<WaterBottle>();
+	
+	Random r =new Random();
 	
 	Coin TempCoin;
 	VendingMachine TempVm;
@@ -21,10 +24,11 @@ public class Controller {
 	{
 		this.game=game;
 		this.text=text;
-		for(int x=0;x<waterGame.WIDTH*waterGame.SCALE;x+=64)
-		{
-			addVendingMachine(new VendingMachine(x,0,text));
-		}
+
+			addVendingMachine(new VendingMachine(r.nextInt(waterGame.WIDTH*waterGame.SCALE),0,text));
+			addSoda(new Soda(r.nextInt(waterGame.WIDTH*waterGame.SCALE),0,text));
+			addWaterBottle(new WaterBottle(r.nextInt(waterGame.WIDTH*waterGame.SCALE),0,text));
+
 		
 	}
 	

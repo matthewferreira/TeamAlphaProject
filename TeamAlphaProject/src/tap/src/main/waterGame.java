@@ -29,7 +29,13 @@ public class waterGame extends Canvas implements Runnable {
 	private MainCharacter mc;
 	private Controller c;
 	private Textures text;
-
+	private Menu menu;
+	
+	public static enum STATE {
+		MENU,
+		GAME
+	};
+	public static STATE State = STATE.MENU;
 	
 	private synchronized void start() //Starts thread
 	{
@@ -72,12 +78,13 @@ public class waterGame extends Canvas implements Runnable {
 		}
 		
 		addKeyListener(new KbInput(this));
+		this.addMouseListener(new MouseInput());
 		
 		text=new Textures(this);
 		
 		mc=new MainCharacter(200,200,text);
 		c=new Controller(this,text);
-		
+		menu = new Menu();
 	}
 	
 	public void run()//game loop
@@ -121,8 +128,10 @@ public class waterGame extends Canvas implements Runnable {
 	
 	private void tick()//updates
 	{
+		if(State == STATE.GAME) {
 		mc.tick();
 		c.tick();
+		}
 	}
 	
 	private void render()//renders
@@ -137,8 +146,14 @@ public class waterGame extends Canvas implements Runnable {
 		Graphics graphic =bs.getDrawGraphics();
 		graphic.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		graphic.drawImage(bg,0,0,null);
+		
+		if(State == STATE.GAME) {
 		mc.render(graphic);
 		c.render(graphic);
+		}
+		else if(State == STATE.MENU) {
+			menu.render(graphic);
+		}
 		graphic.dispose();
 		bs.show();
 		
@@ -148,6 +163,7 @@ public class waterGame extends Canvas implements Runnable {
 	public void keyPressed(KeyEvent e)
 	{
 		int key = e.getKeyCode();
+		if(State == STATE.GAME) {
 		if(key==KeyEvent.VK_RIGHT) 
 		{
 			mc.setVelocityX(5);
@@ -168,6 +184,7 @@ public class waterGame extends Canvas implements Runnable {
 		{
 			currently_shooting=true;
 			c.addCoin(new Coin(mc.getX(),mc.getY(),text));
+		}
 		}
 	}
 	

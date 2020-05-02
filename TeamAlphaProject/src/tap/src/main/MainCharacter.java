@@ -1,25 +1,23 @@
 package tap.src.main;
 
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
+
 
 public class MainCharacter {
 	
-	private double x;//x coordinate
-	private double y;//y coordinate
+	private double x,y;//x and y coordinate
 	
 	private double vX=0;//velocity
 	private double vY=0;
 	
-	private BufferedImage player;
+	private Textures text;
 	
-	public MainCharacter(double x, double y,waterGame game)//constructor
+	public MainCharacter(double x, double y,Textures text)//constructor
 	{
 		this.x=x;
 		this.y=y;
-		SpriteSheet sprite= new SpriteSheet(game.getSpriteSheet());
-		
-		player=sprite.grabImage(1,1,32,32);
+		this.text=text;
+	
 	}
 	
 	public void tick()
@@ -27,7 +25,7 @@ public class MainCharacter {
 		x+=vX;
 		y+=vY;
 		
-		if(x<=0)
+		if(x<=0)//set borders
 		{
 			x=0;
 		}
@@ -47,7 +45,7 @@ public class MainCharacter {
 	
 	public void render(Graphics graphic)
 	{
-		graphic.drawImage(player, (int)x, (int)y, null);
+		graphic.drawImage(text.mc, (int)x, (int)y, null);
 	}
 	
 	public double getX()

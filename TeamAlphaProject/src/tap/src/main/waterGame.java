@@ -22,8 +22,13 @@ public class waterGame extends Canvas implements Runnable {
 	
 	private BufferedImage image = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
 	private BufferedImage spriteSheet=null;
+	private BufferedImage bg=null;
+	
+	private boolean currently_shooting=false;
 	
 	private MainCharacter mc;
+	private Controller c;
+	private Textures text;
 
 	
 	private synchronized void start() //Starts thread
@@ -60,6 +65,7 @@ public class waterGame extends Canvas implements Runnable {
 		try
 		{
 			spriteSheet=loader.loadImage("/SpriteSheet.png");
+			bg=loader.loadImage("/Background.png");
 		}catch(IOException e)
 		{
 			e.printStackTrace();
@@ -67,7 +73,10 @@ public class waterGame extends Canvas implements Runnable {
 		
 		addKeyListener(new KbInput(this));
 		
-		mc=new MainCharacter(200,200,this);
+		text=new Textures(this);
+		
+		mc=new MainCharacter(200,200,text);
+		c=new Controller(this,text);
 		
 	}
 	
@@ -113,6 +122,7 @@ public class waterGame extends Canvas implements Runnable {
 	private void tick()//updates
 	{
 		mc.tick();
+		c.tick();
 	}
 	
 	private void render()//renders
@@ -126,7 +136,9 @@ public class waterGame extends Canvas implements Runnable {
 		
 		Graphics graphic =bs.getDrawGraphics();
 		graphic.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+		graphic.drawImage(bg,0,0,null);
 		mc.render(graphic);
+		c.render(graphic);
 		graphic.dispose();
 		bs.show();
 		
@@ -152,6 +164,11 @@ public class waterGame extends Canvas implements Runnable {
 		{
 			mc.setVelocityY(-5);
 		}
+	    if(key==KeyEvent.VK_SPACE&&!currently_shooting)
+		{
+			currently_shooting=true;
+			c.addCoin(new Coin(mc.getX(),mc.getY(),text));
+		}
 	}
 	
 	public void keyReleased(KeyEvent e)
@@ -172,6 +189,11 @@ public class waterGame extends Canvas implements Runnable {
 		else if(key==KeyEvent.VK_UP) 
 		{
 			mc.setVelocityY(0);
+		}
+		else if(key==KeyEvent.VK_SPACE) 
+		{
+			currently_shooting=false;
+			
 		}
 	}
 	

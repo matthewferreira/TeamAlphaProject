@@ -3,15 +3,14 @@ package tap.src.main;
 import java.awt.Graphics;
 import java.util.Random;
 
-public class WaterBottle implements Entity {
-	private double x,y;
+public class WaterBottle extends GameObject implements Entity {
+
 	private Textures text;
 	Random r= new Random();
 	
 	public WaterBottle(double x,double y,Textures text)
 	{
-		this.x=x;
-		this.y=y;
+		super(x, y);
 		this.text=text;
 	}
 	

@@ -3,9 +3,7 @@ package tap.src.main;
 import java.awt.Graphics;
 
 
-public class MainCharacter {
-	
-	private double x,y;//x and y coordinate
+public class MainCharacter extends GameObject {
 	
 	private double vX=0;//velocity
 	private double vY=0;
@@ -14,8 +12,7 @@ public class MainCharacter {
 	
 	public MainCharacter(double x, double y,Textures text)//constructor
 	{
-		this.x=x;
-		this.y=y;
+		super(x, y);
 		this.text=text;
 	
 	}

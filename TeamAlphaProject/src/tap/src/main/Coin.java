@@ -3,14 +3,13 @@ package tap.src.main;
 import java.awt.Graphics;
 
 
-public class Coin implements Entity {
+public class Coin extends GameObject implements Entity {
 	private double x,y;
 	private Textures text;
 	
 	public Coin(double x,double y,Textures text)
 	{
-		this.x=x;
-		this.y=y;
+		super(x, y);
 		this.text=text;
 		
 	}

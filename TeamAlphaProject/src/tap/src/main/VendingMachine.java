@@ -3,16 +3,14 @@ package tap.src.main;
 import java.awt.Graphics;
 import java.util.Random;
 
-public class VendingMachine implements Entity {
-	
-	private double x,y;
+public class VendingMachine extends GameObject implements Entity {
+
 	private Textures text;
 	Random r= new Random();
 	
 	public VendingMachine(double x,double y,Textures text)
 	{
-		this.x=x;
-		this.y=y;
+		super(x, y);
 		this.text=text;
 	}
 	

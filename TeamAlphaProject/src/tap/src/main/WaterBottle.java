@@ -28,6 +28,7 @@ public class WaterBottle extends GameObject implements Entity {
 	public void render(Graphics graphic)
 	{
 		graphic.drawImage(text.water,(int)x,(int)y,null);
+		graphic.drawRect((int)x, (int)y, 32, 32);
 	}
 	
 	public double getX()

@@ -17,10 +17,11 @@ public class Soda implements Entity {
 	
 	public void tick()
 	{
-		y+=3;
+		y+=r.nextInt(5)+1;
 		if(y>waterGame.HEIGHT*waterGame.SCALE)
 		{
-			y=0;
+			y+=r.nextInt(5)+1;
+			y=-10;
 			x=r.nextInt(waterGame.WIDTH*waterGame.SCALE);
 		}
 	}

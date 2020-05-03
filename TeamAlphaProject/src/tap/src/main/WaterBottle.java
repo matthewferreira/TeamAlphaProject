@@ -3,7 +3,7 @@ package tap.src.main;
 import java.awt.Graphics;
 import java.util.Random;
 
-public class WaterBottle {
+public class WaterBottle implements Entity {
 	private double x,y;
 	private Textures text;
 	Random r= new Random();
@@ -17,10 +17,11 @@ public class WaterBottle {
 	
 	public void tick()
 	{
-		y+=3;
+		y+=r.nextInt(5)+1;
 		if(y>waterGame.HEIGHT*waterGame.SCALE)
 		{
-			y=0;
+			y+=r.nextInt(5)+1;
+			y=-10;
 			x=r.nextInt(waterGame.WIDTH*waterGame.SCALE);
 		}
 	}
@@ -30,6 +31,14 @@ public class WaterBottle {
 		graphic.drawImage(text.water,(int)x,(int)y,null);
 	}
 	
-
-
+	public double getX()
+	{
+		return x;
+	}
+	
+	public double getY()
+	{
+		return y;
+	}
+	
 }

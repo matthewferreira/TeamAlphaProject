@@ -26,6 +26,12 @@ public class waterGame extends Canvas implements Runnable {
 	
 	private boolean currently_shooting=false;
 	
+	private int VmCount=3;
+	private int VmKilled=0;
+	private int SodaCount=5;
+	private int WbCount=1;
+
+	
 	private MainCharacter mc;
 	private Controller c;
 	private Textures text;
@@ -88,6 +94,10 @@ public class waterGame extends Canvas implements Runnable {
 		c=new Controller(text);
 		
 		menu = new Menu();
+		
+		c.addVm(VmCount);
+		c.addSoda(SodaCount);
+		c.addWb(WbCount);
 		
 	}
 	
@@ -244,5 +254,40 @@ public class waterGame extends Canvas implements Runnable {
 	{
 		return spriteSheet;
 	}
+
+	public int getVmCount() {
+		return VmCount;
+	}
+
+	public void setVmCount(int vmCount) {
+		VmCount = vmCount;
+	}
+
+	public int getVmKilled() {
+		return VmKilled;
+	}
+
+	public void setVmKilled(int vmKilled) {
+		VmKilled = vmKilled;
+	}
+
+	public int getSodaCount() {
+		return SodaCount;
+	}
+
+	public void setSodaCount(int sodaCount) {
+		SodaCount = sodaCount;
+	}
+
+	public int getWbCount() {
+		return WbCount;
+	}
+
+	public void setWbCount(int wbCount) {
+		WbCount = wbCount;
+	}
+	
+	
+	
 	
 }

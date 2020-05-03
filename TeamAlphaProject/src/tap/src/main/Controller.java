@@ -15,10 +15,7 @@ public class Controller {
 	{
 
 		this.text=text;
-		for(int i=0;i<20;i++)
-		{
-		addEntity(new VendingMachine(r.nextInt(640),0,text));
-		}
+		
 	}
 	
 	public void tick()
@@ -49,5 +46,28 @@ public class Controller {
 		e.remove(block);
 	}
 	
+	public void addVm(int VmCount)
+	{
+		for(int i=0;i<VmCount;i++)
+		{
+			addEntity(new VendingMachine(r.nextInt(640),-10,text));
+		}
+	}
+	
+	public void addSoda(int SodaCount)
+	{
+		for(int i=0;i<SodaCount;i++)
+		{
+			addEntity(new Soda(r.nextInt(640),-10,text));
+		}
+	}
+	
+	public void addWb(int WbCount)
+	{
+		for(int i=0;i<WbCount;i++)
+		{
+			addEntity(new WaterBottle(r.nextInt(640),-10,text));
+		}
+	}
 
 }

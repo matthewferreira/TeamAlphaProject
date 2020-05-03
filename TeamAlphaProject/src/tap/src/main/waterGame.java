@@ -1,6 +1,7 @@
 package tap.src.main;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -41,6 +42,8 @@ public class waterGame extends Canvas implements Runnable {
 	private Controller c;
 	private Textures text;
 	private Menu menu;
+	
+	public static int HEALTH = 100 * 2;
 
 	public static enum STATE {
 		MENU,
@@ -94,8 +97,8 @@ public class waterGame extends Canvas implements Runnable {
 		
 		text=new Textures(this);
 		
-		mc=new MainCharacter(325,400,text);
 		c=new Controller(text);
+		mc=new MainCharacter(325,400,text, this, c);
 		
 		menu = new Menu();
 		
@@ -169,6 +172,15 @@ public class waterGame extends Canvas implements Runnable {
 		{
 		mc.render(graphic);
 		c.render(graphic);
+		
+		graphic.setColor(Color.red);
+		graphic.fillRect(5, 5, 200, 50);
+		graphic.setColor(Color.green);
+		graphic.fillRect(5, 5, 200, 50);
+		graphic.setColor(Color.white);
+		graphic.drawRect(5, 5, 200, 50);
+		
+		
 		//checkCollision();
 		}
 		else if(State==STATE.MENU)

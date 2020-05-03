@@ -10,11 +10,16 @@ public class MainCharacter extends GameObject {
 	
 	private Textures text;
 	
-	public MainCharacter(double x, double y,Textures text)//constructor
+	waterGame game;
+	Controller controller;
+	
+	public MainCharacter(double x, double y,Textures text, waterGame game, Controller controller)//constructor
 	{
 		super(x, y);
 		this.text=text;
-	
+		this.game=game;
+		this.controller = controller;
+		
 	}
 	
 	public void tick()
@@ -38,6 +43,17 @@ public class MainCharacter extends GameObject {
 		{
 			y=480-32;
 		}
+		
+//THIS RELATES TO THE HEALTH BAR, NEED COLLISION DONE TO USE THIS
+	/*	for(int i=0; i<game.eb.size(); i++) {
+			EntityB tempEnt = game.eb.get(i);
+			
+			if(Physics.Collision(this, tempEnt)) {
+				controller.removeEntity(TempEnt);
+				game.HEALTH -= 10;
+				game.setEnemy_killed(game.getEnemy_killed() + 1);
+			}
+		} */
 	}
 	
 	public void render(Graphics graphic)

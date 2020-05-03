@@ -85,7 +85,6 @@ public class waterGame extends Canvas implements Runnable {
 		}
 		
 		addKeyListener(new KbInput(this));
-		addKeyListener(new KbInput(this));
 		this.addMouseListener(new MouseInput());
 		
 		text=new Textures(this);
@@ -181,6 +180,10 @@ public class waterGame extends Canvas implements Runnable {
 		int key = e.getKeyCode();
 		if(State==STATE.GAME)
 		{
+			if(key==KeyEvent.VK_ESCAPE)
+			{
+				State = STATE.MENU;
+			}
 			
 			if(key==KeyEvent.VK_RIGHT) 
 			{

@@ -24,12 +24,13 @@ public class Controller {
 	
 	Random r =new Random();
 	private Textures text;
+	private waterGame game;
 	
-	public Controller(Textures text)
+	public Controller(Textures text, waterGame game)
 	{
 
 		this.text=text;
-		
+		this.game=game;
 	}
 	
 	public void tick()
@@ -154,7 +155,7 @@ public class Controller {
 	{
 		for(int i=0;i<VmCount;i++)
 		{
-			addEntity(new VendingMachine(r.nextInt(640),-10,text));
+			addEntity(new VendingMachine(r.nextInt(640),-10,text,this,game));
 		}
 	}
 	

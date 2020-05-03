@@ -9,21 +9,32 @@ public class VendingMachine extends GameObject implements Foe {
 
 	private Textures text;
 	Random r= new Random();
+	private waterGame game;
+	private Controller c;
 	
-	public VendingMachine(double x,double y,Textures text)
+	public VendingMachine(double x,double y,Textures text, Controller c, waterGame game)
 	{
 		super(x, y);
 		this.text=text;
+		this.c = c;
+		this.game = game;
 	}
 	
 	public void tick()
 	{
 		y+=r.nextInt(5)+1;
+		
 		if(y>waterGame.HEIGHT*waterGame.SCALE)
 		{
 			y+=r.nextInt(5)+1;
 			y=-10;
 			x=r.nextInt(waterGame.WIDTH*waterGame.SCALE);
+		}
+		
+		if(Physics.Collision(this, game.ea))
+		{
+			c.removeEntity(this);
+		
 		}
 	}
 	

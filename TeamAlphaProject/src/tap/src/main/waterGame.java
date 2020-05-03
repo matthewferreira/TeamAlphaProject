@@ -9,12 +9,13 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.LinkedList;
-import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 
 import tap.src.main.classes.Ally;
 import tap.src.main.classes.Foe;
+import tap.src.main.classes.PowerDown;
+import tap.src.main.classes.PowerUp;
 
 public class waterGame extends Canvas implements Runnable {
 
@@ -49,6 +50,8 @@ public class waterGame extends Canvas implements Runnable {
 	
 	public LinkedList<Ally> ea;
 	public LinkedList<Foe> eb;
+	public LinkedList<PowerUp> pu;
+	public LinkedList<PowerDown> pd;
 	
 	
 	public static int HEALTH = 100 * 2;
@@ -105,11 +108,13 @@ public class waterGame extends Canvas implements Runnable {
 		
 		text=new Textures(this);
 		
-		c=new Controller(text);
+		c=new Controller(text, this);
 		mc=new MainCharacter(325,400,text, this, c);
 		
 		ea = c.getAlly();
 		eb = c.getFoe();
+		pu = c.getPowerUp();
+		pd = c.getPowerDown();
 		
 		menu = new Menu();
 		
@@ -164,6 +169,13 @@ public class waterGame extends Canvas implements Runnable {
 		{
 		mc.tick();
 		c.tick();
+		}
+		
+		if(VmKilled >= VmCount)
+		{
+			VmCount = VmCount + 2;
+			VmKilled = 0;
+
 		}
 	}
 	
@@ -318,6 +330,8 @@ public class waterGame extends Canvas implements Runnable {
 	public void setWbCount(int wbCount) {
 		WbCount = wbCount;
 	}
+	
+
 	
 
 	

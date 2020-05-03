@@ -47,6 +47,12 @@ public class MainCharacter extends GameObject implements Ally {
 			y=480-32;
 		}
 		
+		// See if collision is working (placerholder)	
+		if(Physics.Collision(this, game.eb)) {
+			System.out.println("COLLISION DETECTED");
+		}
+	
+					
 //THIS RELATES TO THE HEALTH BAR, NEED COLLISION DONE TO USE THIS
 	/*	for(int i=0; i<game.eb.size(); i++) {
 			EntityB tempEnt = game.eb.get(i);
@@ -57,6 +63,9 @@ public class MainCharacter extends GameObject implements Ally {
 				game.setEnemy_killed(game.getEnemy_killed() + 1);
 			}
 		} */
+		
+		
+		
 	}
 	
 	public void render(Graphics graphic)

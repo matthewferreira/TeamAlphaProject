@@ -15,6 +15,17 @@ public class Physics {
 				return true;
 			}
 			
+		}		
+		return false;
+	}
+	public static boolean Collision(Foe entb, LinkedList<Ally> enta) {
+		
+		for(int i = 0; i < enta.size(); i++) {
+			
+			if(entb.getBounds().intersects(enta.get(i).getBounds())) {
+				return true;
+			}
+			
 		}
 		
 		return false;

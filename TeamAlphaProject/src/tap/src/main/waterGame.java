@@ -84,8 +84,8 @@ public class waterGame extends Canvas implements Runnable {
 		
 		text=new Textures(this);
 		
-		mc=new MainCharacter(200,200,text);
-		c=new Controller(this,text);
+		mc=new MainCharacter(325,400,text);
+		c=new Controller(text);
 		
 		menu = new Menu();
 		
@@ -191,7 +191,7 @@ public class waterGame extends Canvas implements Runnable {
 		    if(key==KeyEvent.VK_SPACE&&!currently_shooting)
 			{
 				currently_shooting=true;
-				c.addCoin(new Coin(mc.getX(),mc.getY(),text));
+				c.addEntity(new Coin(mc.getX(),mc.getY(),text));
 			}
 		}
 	}

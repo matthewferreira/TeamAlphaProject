@@ -3,7 +3,7 @@ package tap.src.main;
 import java.awt.Graphics;
 import java.util.Random;
 
-public class Soda {
+public class Soda implements Entity {
 	private double x,y;
 	private Textures text;
 	Random r= new Random();
@@ -28,6 +28,16 @@ public class Soda {
 	public void render(Graphics graphic)
 	{
 		graphic.drawImage(text.soda,(int)x,(int)y,null);
+	}
+	
+	public double getX()
+	{
+		return x;
+	}
+	
+	public double getY()
+	{
+		return y;
 	}
 	
 

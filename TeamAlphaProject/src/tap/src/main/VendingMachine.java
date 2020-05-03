@@ -3,7 +3,7 @@ package tap.src.main;
 import java.awt.Graphics;
 import java.util.Random;
 
-public class VendingMachine {
+public class VendingMachine implements Entity {
 	
 	private double x,y;
 	private Textures text;
@@ -29,6 +29,16 @@ public class VendingMachine {
 	public void render(Graphics graphic)
 	{
 		graphic.drawImage(text.vending,(int)x,(int)y,null);
+	}
+	
+	public double getX()
+	{
+		return x;
+	}
+	
+	public double getY()
+	{
+		return y;
 	}
 	
 }

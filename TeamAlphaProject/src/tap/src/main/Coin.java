@@ -3,7 +3,7 @@ package tap.src.main;
 import java.awt.Graphics;
 
 
-public class Coin {
+public class Coin implements Entity {
 	private double x,y;
 	private Textures text;
 	
@@ -23,6 +23,11 @@ public class Coin {
 	public void render(Graphics graphic)
 	{
 		graphic.drawImage(text.coin,(int) x,(int) y, null);
+	}
+	
+	public double getX()
+	{
+		return x;
 	}
 	
 	public double getY()

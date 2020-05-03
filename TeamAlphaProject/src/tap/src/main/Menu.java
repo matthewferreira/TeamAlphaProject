@@ -23,12 +23,12 @@ public class Menu {
 		Font fnt1 = new Font("SANS_SERIF", Font.BOLD, 30);
 		Font fnt2 = new Font("SANS_SERIF", Font.BOLD, 30);
 		
-		//Title
+		// Title
 		g.setFont(fnt0);
 		g.setColor(Color.white);
 		g.drawString("HYDRATION SIMULATOR", 13, 100);
 		
-		//Play Button
+		// Play Button
 		g.setFont(fnt1);
 		g.setColor(Color.green);
 		//g.fillRoundRect(waterGame.WIDTH/2+120, 150 , 100, 50, 50, 50);
@@ -37,7 +37,7 @@ public class Menu {
 		g.drawString("PLAY", playButton.x + 19, playButton.y + 37);
 		g2d.draw(playButton);
 		
-		//Quit Button
+		// Quit Button
 		g.setFont(fnt2);
 		g.setColor(Color.red);
 		//g.fillRoundRect(waterGame.WIDTH/2+120, 250 , 100, 50, 50, 50);

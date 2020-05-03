@@ -3,7 +3,9 @@ package tap.src.main;
 import java.awt.Rectangle;
 
 public class GameObject {
-	public double x, y;
+	public double x;
+	public double y;
+	public double width, height = 32;
 	
 	public GameObject(double x, double y) {
 		this.x = x;

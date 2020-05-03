@@ -7,11 +7,16 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 
 public class waterGame extends Canvas implements Runnable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static int WIDTH =320;
 	public static final int HEIGHT = WIDTH /12*9;
 	public static final int SCALE =2;                 //Variables to help display ratio
@@ -159,11 +164,12 @@ public class waterGame extends Canvas implements Runnable {
 		
 		Graphics graphic =bs.getDrawGraphics();
 		graphic.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-		graphic.drawImage(bg,0,0,null);
+		graphic.drawImage(bg,0,0,null);		
 		if(State==STATE.GAME)
 		{
 		mc.render(graphic);
 		c.render(graphic);
+		//checkCollision();
 		}
 		else if(State==STATE.MENU)
 		{
@@ -290,7 +296,19 @@ public class waterGame extends Canvas implements Runnable {
 		WbCount = wbCount;
 	}
 	
+
 	
+/*	//Rectangle is rendered in each of their own render() for testing collision properly
+	public void checkCollision() {
+		Rectangle r1 = mc.getBounds(32, 32); //r1 is player hitbox
+		Rectangle r2 = coin.getBounds(32, 32); //r2 is coin hitbox
+		if(r2.intersects(r1))
+				System.out.print("Collision");
+		//Rectangle r3 //r3 is soda hitbox
+		//Rectangle r4 //r4 is water hitbox
+		//Rectangle r5 //r5 is vending hitbox
+	}
+	*/
 	
 	
 }

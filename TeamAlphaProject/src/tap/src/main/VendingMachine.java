@@ -1,9 +1,11 @@
 package tap.src.main;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.Random;
+import tap.src.main.classes.Foe;
 
-public class VendingMachine extends GameObject implements Entity {
+public class VendingMachine extends GameObject implements Foe {
 
 	private Textures text;
 	Random r= new Random();
@@ -29,6 +31,10 @@ public class VendingMachine extends GameObject implements Entity {
 	{
 		graphic.drawImage(text.vending,(int)x,(int)y,null);
 		graphic.drawRect((int)x, (int)y, 32, 32);
+	}
+	
+	public Rectangle getBounds() {
+		return new Rectangle((int)x, (int)y, 32, 32);
 	}
 	
 	public double getX()

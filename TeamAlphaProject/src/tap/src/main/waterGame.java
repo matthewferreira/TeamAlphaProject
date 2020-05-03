@@ -8,9 +8,13 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.awt.Rectangle;
 
 import javax.swing.JFrame;
+
+import tap.src.main.classes.Ally;
+import tap.src.main.classes.Foe;
 
 public class waterGame extends Canvas implements Runnable {
 
@@ -42,6 +46,10 @@ public class waterGame extends Canvas implements Runnable {
 	private Controller c;
 	private Textures text;
 	private Menu menu;
+	
+	public LinkedList<Ally> ea;
+	public LinkedList<Foe> eb;
+	
 	
 	public static int HEALTH = 100 * 2;
 
@@ -99,6 +107,9 @@ public class waterGame extends Canvas implements Runnable {
 		
 		c=new Controller(text);
 		mc=new MainCharacter(325,400,text, this, c);
+		
+		ea = c.getAlly();
+		eb = c.getFoe();
 		
 		menu = new Menu();
 		
@@ -221,8 +232,8 @@ public class waterGame extends Canvas implements Runnable {
 			}
 		    if(key==KeyEvent.VK_SPACE&&!currently_shooting)
 			{
+				c.addEntity(new Coin(mc.getX(),mc.getY(),text, this));
 				currently_shooting=true;
-				c.addEntity(new Coin(mc.getX(),mc.getY(),text));
 			}
 		}
 	}

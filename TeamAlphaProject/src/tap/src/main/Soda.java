@@ -1,9 +1,12 @@
 package tap.src.main;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.Random;
 
-public class Soda extends GameObject implements Entity {
+import tap.src.main.classes.PowerDown;
+
+public class Soda extends GameObject implements PowerDown {
 	private Textures text;
 	Random r= new Random();
 	
@@ -28,6 +31,10 @@ public class Soda extends GameObject implements Entity {
 	{
 		graphic.drawImage(text.soda,(int)x,(int)y,null);
 		graphic.drawRect((int)x, (int)y, 32, 32);
+	}
+	
+	public Rectangle getBounds() {
+		return new Rectangle((int)x, (int)y, 32, 32);
 	}
 	
 	public double getX()

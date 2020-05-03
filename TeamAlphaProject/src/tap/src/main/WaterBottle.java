@@ -1,9 +1,12 @@
 package tap.src.main;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.Random;
 
-public class WaterBottle extends GameObject implements Entity {
+import tap.src.main.classes.PowerUp;
+
+public class WaterBottle extends GameObject implements PowerUp {
 
 	private Textures text;
 	Random r= new Random();
@@ -28,7 +31,11 @@ public class WaterBottle extends GameObject implements Entity {
 	public void render(Graphics graphic)
 	{
 		graphic.drawImage(text.water,(int)x,(int)y,null);
-		graphic.drawRect((int)x, (int)y, 32, 32);
+		graphic.drawRect((int)x, (int)y, 32, 32); // change 32 to 16
+	}
+	
+	public Rectangle getBounds() {
+		return new Rectangle((int)x, (int)y, 32, 32);
 	}
 	
 	public double getX()

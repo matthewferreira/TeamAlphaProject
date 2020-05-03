@@ -1,9 +1,12 @@
 package tap.src.main;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
+
+import tap.src.main.classes.Ally;
 
 
-public class MainCharacter extends GameObject {
+public class MainCharacter extends GameObject implements Ally {
 	
 	private double vX=0;//velocity
 	private double vY=0;
@@ -60,6 +63,10 @@ public class MainCharacter extends GameObject {
 	{
 		graphic.drawImage(text.mc, (int)x, (int)y, null);
 		graphic.drawRect((int)x, (int)y, 32, 32);
+	}
+	
+	public Rectangle getBounds() {
+		return new Rectangle((int)x, (int)y, 32, 32);
 	}
 	
 	public double getX()

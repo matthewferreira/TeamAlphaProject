@@ -87,21 +87,7 @@ public class MainCharacter extends GameObject implements Ally {
 				game.setWbConsumed(game.getWbConsumed()+1);
 			}
 			
-		}
-		
-						
-//THIS RELATES TO THE HEALTH BAR, NEED COLLISION DONE TO USE THIS
-	/*	for(int i=0; i<game.eb.size(); i++) {
-			EntityB tempEnt = game.eb.get(i);
-			
-			if(Physics.Collision(this, tempEnt)) {
-				controller.removeEntity(TempEnt);
-				game.HEALTH -= 10;
-				game.setEnemy_killed(game.getEnemy_killed() + 1);
-			}
-		} */
-		
-		
+		}	
 		
 	}
 	

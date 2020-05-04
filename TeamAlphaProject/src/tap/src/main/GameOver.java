@@ -22,7 +22,7 @@ public class GameOver {
 		Font fnt1 = new Font("SANS_SERIF", Font.BOLD, 30);
 		Font fnt2 = new Font("SANS_SERIF", Font.BOLD, 30);
 		
-		//Title
+		//Title,centered
 		g.setFont(fnt0);
 		g.setColor(Color.white);
 		g.drawString("Game Over", 200, 100);

@@ -22,10 +22,10 @@ public class Menu {
 		Font fnt1 = new Font("SANS_SERIF", Font.BOLD, 30);
 		Font fnt2 = new Font("SANS_SERIF", Font.BOLD, 30);
 		
-		//Title
+		//Title, center
 		g.setFont(fnt0);
 		g.setColor(Color.white);
-		g.drawString("HYDRATION SIMULATOR", 50, 100);
+		g.drawString("HYDRATION SIMULATOR", 50, 100); 
 	
 		//Play Button
 		g.setFont(fnt1);

@@ -220,7 +220,7 @@ public class waterGame extends Canvas implements Runnable {
 		
 		graphic.setColor(Color.red);
 		graphic.fillRect(5, 5, 200, 50);
-		graphic.setColor(Color.Light_Blue);
+		graphic.setColor(Color.cyan);
 		graphic.fillRect(5, 5, HEALTH, 50);
 		graphic.setColor(Color.white);
 		graphic.drawRect(5, 5, 200, 50);

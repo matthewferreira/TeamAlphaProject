@@ -222,9 +222,6 @@ public class waterGame extends Canvas implements Runnable {
 		graphic.fillRect(5, 5, HEALTH, 50);
 		graphic.setColor(Color.white);
 		graphic.drawRect(5, 5, 200, 50);
-		
-		
-		//checkCollision();
 		}
 		else if((State==STATE.MENU) || (State == STATE.GAMEOVER))
 		{
@@ -372,20 +369,5 @@ public class waterGame extends Canvas implements Runnable {
 	public void setWbConsumed(int wbConsumed) {
 		WbConsumed = wbConsumed;
 	}
-	
-/*	//Rectangle is rendered in each of their own render() for testing collision properly
-	public void checkCollision() {
-		Rectangle r1 = mc.getBounds(32, 32); //r1 is player hitbox
-		Rectangle r2 = coin.getBounds(32, 32); //r2 is coin hitbox
-		if(r2.intersects(r1))
-				System.out.print("Collision");
-		//Rectangle r3 //r3 is soda hitbox
-		//Rectangle r4 //r4 is water hitbox
-		//Rectangle r5 //r5 is vending hitbox
-	}
-	*/
-	
-	/* added this comment just to commit and push */
-	/* added this comment just to commit and push */
 	
 }

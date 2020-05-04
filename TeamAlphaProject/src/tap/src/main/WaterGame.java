@@ -20,7 +20,7 @@ import tap.src.main.classes.PowerUp;
 public class WaterGame extends Canvas implements Runnable {
 
 	/**
-	 * Updated Version: 05032020
+	 * Updated Version: 05/03/2020
 	 */
 	private static final long serialVersionUID = 1L;
 	public static int WIDTH =320;

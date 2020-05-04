@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import tap.src.main.classes.Ally;
+import tap.src.main.classes.Foe;
 
 
 public class MainCharacter extends GameObject implements Ally {
@@ -47,12 +48,19 @@ public class MainCharacter extends GameObject implements Ally {
 			y=480-32;
 		}
 		
-		// See if collision is working (placerholder)	
-		if(Physics.Collision(this, game.eb)) {
-			System.out.println("COLLISION DETECTED");
+		for(int i = 0; i < game.eb.size(); i++) {
+			
+			Foe tempEnt = game.eb.get(i);
+			
+			// See if collision is working (place-holder)	
+			if(Physics.Collision(this, tempEnt)) {
+				System.out.println("COLLISION DETECTED");
+			}
+			
+			
 		}
-	
-					
+		
+						
 //THIS RELATES TO THE HEALTH BAR, NEED COLLISION DONE TO USE THIS
 	/*	for(int i=0; i<game.eb.size(); i++) {
 			EntityB tempEnt = game.eb.get(i);

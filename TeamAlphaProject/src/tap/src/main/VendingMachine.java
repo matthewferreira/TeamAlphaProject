@@ -3,6 +3,8 @@ package tap.src.main;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.Random;
+
+import tap.src.main.classes.Ally;
 import tap.src.main.classes.Foe;
 
 public class VendingMachine extends GameObject implements Foe {
@@ -31,11 +33,18 @@ public class VendingMachine extends GameObject implements Foe {
 			x=r.nextInt(waterGame.WIDTH*waterGame.SCALE);
 		}
 		
-		if(Physics.Collision(this, game.ea))
-		{
-			c.removeEntity(this);
-		
+		for(int i = 0; i < game.ea.size(); i++) {
+			
+			Ally tempEnt = game.ea.get(i);
+			
+			if(Physics.Collision(this, tempEnt))
+			{
+				c.removeEntity(tempEnt);
+				c.removeEntity(this);
+			}
+			
 		}
+	
 	}
 	
 	public void render(Graphics graphic)

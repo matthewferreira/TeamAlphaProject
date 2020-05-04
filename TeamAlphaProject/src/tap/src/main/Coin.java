@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import tap.src.main.classes.Ally;
+import tap.src.main.classes.Foe;
 
 
 public class Coin extends GameObject implements Ally {
@@ -21,10 +22,7 @@ public class Coin extends GameObject implements Ally {
 	public void tick()
 	{
 		y-=10;
-		
-		if(Physics.Collision(this, game.eb)) {
-			System.out.println("COLLISION DETECTED");
-		}
+				
 	}
 	
 	public void render(Graphics graphic)

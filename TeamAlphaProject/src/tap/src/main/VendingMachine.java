@@ -11,10 +11,10 @@ public class VendingMachine extends GameObject implements Foe {
 
 	private Textures text;
 	Random r= new Random();
-	private waterGame game;
+	private WaterGame game;
 	private Controller c;
 	
-	public VendingMachine(double x,double y,Textures text, Controller c, waterGame game)
+	public VendingMachine(double x,double y,Textures text, Controller c, WaterGame game)
 	{
 		super(x, y);
 		this.text=text;
@@ -26,11 +26,11 @@ public class VendingMachine extends GameObject implements Foe {
 	{
 		y+=r.nextInt(5)+1;
 		
-		if(y>waterGame.HEIGHT*waterGame.SCALE)
+		if(y>WaterGame.HEIGHT*WaterGame.SCALE)
 		{
 			y+=r.nextInt(5)+1;
 			y=-10;
-			x=r.nextInt(waterGame.WIDTH*waterGame.SCALE);
+			x=r.nextInt(WaterGame.WIDTH*WaterGame.SCALE);
 		}
 		
 		for(int i = 0; i < game.ea.size(); i++) {

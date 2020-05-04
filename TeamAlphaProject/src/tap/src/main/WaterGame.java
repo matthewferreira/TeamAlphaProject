@@ -17,7 +17,7 @@ import tap.src.main.classes.Foe;
 import tap.src.main.classes.PowerDown;
 import tap.src.main.classes.PowerUp;
 
-public class waterGame extends Canvas implements Runnable {
+public class WaterGame extends Canvas implements Runnable {
 
 	/**
 	 * Updated Version: 05032020
@@ -294,7 +294,7 @@ public class waterGame extends Canvas implements Runnable {
 	
 	public static void main(String args[])
 	{
-		waterGame game = new waterGame();
+		WaterGame game = new WaterGame();
 		game.setPreferredSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE)); //construct dimension to specified width x height times scale 
 		game.setMaximumSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
 		game.setMinimumSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));

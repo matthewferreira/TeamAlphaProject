@@ -19,11 +19,11 @@ public class Soda extends GameObject implements PowerDown {
 	public void tick()
 	{
 		y+=r.nextInt(5)+1;
-		if(y>waterGame.HEIGHT*waterGame.SCALE)
+		if(y>WaterGame.HEIGHT*WaterGame.SCALE)
 		{
 			y+=r.nextInt(5)+1;
 			y=-10;
-			x=r.nextInt(waterGame.WIDTH*waterGame.SCALE);
+			x=r.nextInt(WaterGame.WIDTH*WaterGame.SCALE);
 		}
 	}
 	

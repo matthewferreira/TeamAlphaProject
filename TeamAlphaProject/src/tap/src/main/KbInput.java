@@ -5,9 +5,9 @@ import java.awt.event.KeyEvent;
 
 public class KbInput extends KeyAdapter {
 	
-	waterGame game;
+	WaterGame game;
 	
-	public KbInput(waterGame game)//constructor
+	public KbInput(WaterGame game)//constructor
 	{
 		this.game=game;
 	}

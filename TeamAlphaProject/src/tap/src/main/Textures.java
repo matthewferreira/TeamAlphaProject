@@ -6,7 +6,7 @@ public class Textures {
 	public BufferedImage mc,coin,vending,soda,water;
 	private SpriteSheet sprite;
 	
-	public Textures(waterGame game)
+	public Textures(WaterGame game)
 	{
 		 sprite=new SpriteSheet(game.getSpriteSheet());
 		 

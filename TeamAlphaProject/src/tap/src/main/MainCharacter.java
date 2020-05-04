@@ -16,10 +16,10 @@ public class MainCharacter extends GameObject implements Ally {
 	
 	private Textures text;
 	
-	waterGame game;
+	WaterGame game;
 	Controller controller;
 	
-	public MainCharacter(double x, double y,Textures text, waterGame game, Controller controller)//constructor
+	public MainCharacter(double x, double y,Textures text, WaterGame game, Controller controller)//constructor
 	{
 		super(x, y);
 		this.text=text;
@@ -57,7 +57,7 @@ public class MainCharacter extends GameObject implements Ally {
 			// See if collision is working (place-holder)	
 			if(Physics.Collision(this, tempEnt)) {
 				controller.removeEntity(tempEnt);
-				waterGame.HEALTH -= 20;
+				WaterGame.HEALTH -= 20;
 				game.setVmKilled(game.getVmKilled()+1);
 			}
 		}
@@ -68,7 +68,7 @@ public class MainCharacter extends GameObject implements Ally {
 			
 			if(Physics.Collision(this, tempEnt)) {
 				controller.removeEntity(tempEnt);;
-				waterGame.HEALTH -= 10;
+				WaterGame.HEALTH -= 10;
 				game.setSodaConsumed(game.getSodaConsumed()+1);
 			}
 			
@@ -80,9 +80,9 @@ public class MainCharacter extends GameObject implements Ally {
 			
 			if(Physics.Collision(this, tempEnt)) {
 				controller.removeEntity(tempEnt);
-				waterGame.HEALTH += 5;
-				if(waterGame.HEALTH >= 200) {
-					waterGame.HEALTH = 200;
+				WaterGame.HEALTH += 5;
+				if(WaterGame.HEALTH >= 200) {
+					WaterGame.HEALTH = 200;
 				}
 				game.setWbConsumed(game.getWbConsumed()+1);
 			}

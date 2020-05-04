@@ -9,8 +9,8 @@ import java.awt.Rectangle;
 
 public class Menu {
 	
-	public Rectangle playButton = new Rectangle(waterGame.WIDTH/2+100, 200, 120, 50);
-	public Rectangle quitButton = new Rectangle(waterGame.WIDTH/2+100, 300, 120, 50);
+	public Rectangle playButton = new Rectangle(WaterGame.WIDTH/2+100, 200, 120, 50);
+	public Rectangle quitButton = new Rectangle(WaterGame.WIDTH/2+100, 300, 120, 50);
 	
 	
 	public void render(Graphics g) {
@@ -31,7 +31,7 @@ public class Menu {
 		g.setFont(fnt1);
 		g.setColor(Color.green);
 		//g.fillRoundRect(waterGame.WIDTH/2+120, 150 , 100, 50, 50, 50);
-		g.fillRect(waterGame.WIDTH/2+100, 200, 120, 50);
+		g.fillRect(WaterGame.WIDTH/2+100, 200, 120, 50);
 		g.setColor(Color.black);
 		g.drawString("PLAY", playButton.x + 19, playButton.y + 37);
 		g2d.draw(playButton);
@@ -40,7 +40,7 @@ public class Menu {
 		g.setFont(fnt2);
 		g.setColor(Color.red);
 		//g.fillRoundRect(waterGame.WIDTH/2+120, 250 , 100, 50, 50, 50);
-		g.fillRect(waterGame.WIDTH/2+100, 300, 120, 50);
+		g.fillRect(WaterGame.WIDTH/2+100, 300, 120, 50);
 		g.setColor(Color.black);
 		g.drawString("QUIT", quitButton.x + 19, quitButton.y + 37);
 		g2d.draw(quitButton);

@@ -9,9 +9,9 @@ import tap.src.main.classes.Foe;
 
 public class Coin extends GameObject implements Ally {
 	private Textures text;
-	private waterGame game;
+	private WaterGame game;
 	
-	public Coin(double x, double y, Textures text, waterGame game)
+	public Coin(double x, double y, Textures text, WaterGame game)
 	{
 		super(x, y);
 		this.text=text;

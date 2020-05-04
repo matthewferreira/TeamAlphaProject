@@ -331,9 +331,6 @@ public class waterGame extends Canvas implements Runnable {
 		WbCount = wbCount;
 	}
 	
-
-	
-
 	
 /*	//Rectangle is rendered in each of their own render() for testing collision properly
 	public void checkCollision() {
@@ -347,5 +344,6 @@ public class waterGame extends Canvas implements Runnable {
 	}
 	*/
 	
+	/* added this comment just to commit and push */
 	
 }

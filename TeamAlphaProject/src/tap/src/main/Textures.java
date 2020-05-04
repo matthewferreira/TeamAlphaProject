@@ -1,5 +1,5 @@
 package tap.src.main;
-
+//
 import java.awt.image.BufferedImage;
 
 public class Textures {

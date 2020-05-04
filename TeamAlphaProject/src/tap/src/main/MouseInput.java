@@ -19,14 +19,14 @@ public class MouseInput implements MouseListener {
 		
 		
 		// Play button
-		if(mx >= WaterGame.WIDTH/2+100 && mx <= WaterGame.WIDTH/2+220) {
+		if(mx >= waterGame.WIDTH/2+100 && mx <= waterGame.WIDTH/2+220) {
 			if(my >= 200 && my <= 250) {
-				WaterGame.State = WaterGame.STATE.GAME;
+				waterGame.State = waterGame.STATE.GAME;
 			}
 		}
 		
 		// Quit button
-		if(mx >= WaterGame.WIDTH/2+100 && mx <= WaterGame.WIDTH/2+220) {
+		if(mx >= waterGame.WIDTH/2+100 && mx <= waterGame.WIDTH/2+220) {
 			if(my >= 300 && my <= 350) {
 				System.exit(1);
 			}

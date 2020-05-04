@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 
-public class Menu {
+public class GameOver {
 	
 	public Rectangle playButton = new Rectangle(waterGame.WIDTH/2+100, 200, 120, 50);
 	public Rectangle quitButton = new Rectangle(waterGame.WIDTH/2+100, 300, 120, 50);
@@ -25,7 +25,7 @@ public class Menu {
 		//Title
 		g.setFont(fnt0);
 		g.setColor(Color.white);
-		g.drawString("HYDRATION SIMULATOR", 13, 100);
+		g.drawString("Game Over", 13, 100);
 	
 		//Play Button
 		g.setFont(fnt1);

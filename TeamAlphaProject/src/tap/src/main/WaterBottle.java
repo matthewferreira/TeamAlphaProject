@@ -10,10 +10,10 @@ public class WaterBottle extends GameObject implements PowerUp {
 
 	private Textures text;
 	Random r= new Random();
-	WaterGame game;
+	waterGame game;
 	Controller c;
 	
-	public WaterBottle(double x,double y,Textures text, Controller c, WaterGame game)
+	public WaterBottle(double x,double y,Textures text, Controller c, waterGame game)
 	{
 		super(x, y);
 		this.text=text;
@@ -24,7 +24,7 @@ public class WaterBottle extends GameObject implements PowerUp {
 	public void tick()
 	{
 		y+=r.nextInt(5)+1;
-		if(y>WaterGame.HEIGHT*WaterGame.SCALE)
+		if(y>waterGame.HEIGHT*waterGame.SCALE)
 		{
 			//Do-nothing
 			/*

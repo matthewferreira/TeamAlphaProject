@@ -24,9 +24,9 @@ public class Controller {
 	
 	Random r =new Random();
 	private Textures text;
-	private WaterGame game;
+	private waterGame game;
 	
-	public Controller(Textures text, WaterGame game)
+	public Controller(Textures text, waterGame game)
 	{
 
 		this.text=text;

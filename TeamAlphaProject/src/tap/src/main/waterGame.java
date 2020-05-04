@@ -17,7 +17,7 @@ import tap.src.main.classes.Foe;
 import tap.src.main.classes.PowerDown;
 import tap.src.main.classes.PowerUp;
 
-public class WaterGame extends Canvas implements Runnable {
+public class waterGame extends Canvas implements Runnable {
 
 	/**
 	 * Updated Version: 05/03/2020
@@ -49,6 +49,7 @@ public class WaterGame extends Canvas implements Runnable {
 	private Controller c;
 	private Textures text;
 	private Menu menu;
+	private GameOver lose;
 	
 	public LinkedList<Ally> ea;
 	public LinkedList<Foe> eb;
@@ -60,7 +61,8 @@ public class WaterGame extends Canvas implements Runnable {
 
 	public static enum STATE {
 		MENU,
-		GAME
+		GAME,
+		GAMEOVER
 	};
 	
 	public static STATE State = STATE.MENU;
@@ -119,6 +121,7 @@ public class WaterGame extends Canvas implements Runnable {
 		pd = c.getPowerDown();
 		
 		menu = new Menu();
+		lose = new GameOver();
 		
 		c.addVm(VmCount);
 		c.addSoda(SodaCount);
@@ -190,7 +193,8 @@ public class WaterGame extends Canvas implements Runnable {
 		}
 		
 		if(HEALTH <= 0) {
-			System.out.println("GAME OVER MESSAGE");
+			State = STATE.GAMEOVER;
+			HEALTH = 100 * 2;
 		}
 	}
 	
@@ -222,9 +226,15 @@ public class WaterGame extends Canvas implements Runnable {
 		
 		//checkCollision();
 		}
-		else if(State==STATE.MENU)
+		else if((State==STATE.MENU) || (State == STATE.GAMEOVER))
 		{
-			menu.render(graphic);
+			if(State == STATE.MENU) {
+				menu.render(graphic);
+			} else {
+				lose.render(graphic);
+			}
+			
+				
 		}
 		graphic.dispose();
 		bs.show();
@@ -294,7 +304,7 @@ public class WaterGame extends Canvas implements Runnable {
 	
 	public static void main(String args[])
 	{
-		WaterGame game = new WaterGame();
+		waterGame game = new waterGame();
 		game.setPreferredSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE)); //construct dimension to specified width x height times scale 
 		game.setMaximumSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
 		game.setMinimumSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));

@@ -5,6 +5,8 @@ import java.awt.Rectangle;
 
 import tap.src.main.classes.Ally;
 import tap.src.main.classes.Foe;
+import tap.src.main.classes.PowerDown;
+import tap.src.main.classes.PowerUp;
 
 
 public class MainCharacter extends GameObject implements Ally {
@@ -54,9 +56,36 @@ public class MainCharacter extends GameObject implements Ally {
 			
 			// See if collision is working (place-holder)	
 			if(Physics.Collision(this, tempEnt)) {
-				System.out.println("COLLISION DETECTED");
+				controller.removeEntity(tempEnt);
+				waterGame.HEALTH -= 20;
+				game.setVmKilled(game.getVmKilled()+1);
+			}
+		}
+		
+		for(int i = 0; i < game.pd.size(); i++) {
+			
+			PowerDown tempEnt = game.pd.get(i);
+			
+			if(Physics.Collision(this, tempEnt)) {
+				controller.removeEntity(tempEnt);;
+				waterGame.HEALTH -= 10;
+				game.setSodaConsumed(game.getSodaConsumed()+1);
 			}
 			
+		}
+		
+		for(int i = 0; i < game.pu.size(); i++) {
+			
+			PowerUp tempEnt = game.pu.get(i);
+			
+			if(Physics.Collision(this, tempEnt)) {
+				controller.removeEntity(tempEnt);
+				waterGame.HEALTH += 5;
+				if(waterGame.HEALTH >= 200) {
+					waterGame.HEALTH = 200;
+				}
+				game.setWbConsumed(game.getWbConsumed()+1);
+			}
 			
 		}
 		

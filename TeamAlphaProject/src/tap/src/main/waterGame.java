@@ -40,7 +40,9 @@ public class waterGame extends Canvas implements Runnable {
 	private int VmCount=5;
 	private int VmKilled=0;
 	private int SodaCount=3;
+	private int SodaConsumed=0;
 	private int WbCount=1;
+	private int WbConsumed=0;
 
 	
 	private MainCharacter mc;
@@ -175,7 +177,20 @@ public class waterGame extends Canvas implements Runnable {
 		{
 			VmCount = VmCount + 2;
 			VmKilled = 0;
+			WbCount++;
 			c.addVm(VmCount);
+			c.addWb(WbCount);
+
+		}
+		
+		if(SodaConsumed >= SodaCount) {
+			SodaCount = SodaCount + 1;
+			SodaConsumed = 0;
+			c.addSoda(SodaCount);
+		}
+		
+		if(HEALTH <= 0) {
+			System.out.println("GAME OVER MESSAGE");
 		}
 	}
 	
@@ -191,6 +206,7 @@ public class waterGame extends Canvas implements Runnable {
 		Graphics graphic =bs.getDrawGraphics();
 		graphic.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 		graphic.drawImage(bg,0,0,null);		
+		
 		if(State==STATE.GAME)
 		{
 		mc.render(graphic);
@@ -199,7 +215,7 @@ public class waterGame extends Canvas implements Runnable {
 		graphic.setColor(Color.red);
 		graphic.fillRect(5, 5, 200, 50);
 		graphic.setColor(Color.green);
-		graphic.fillRect(5, 5, 200, 50);
+		graphic.fillRect(5, 5, HEALTH, 50);
 		graphic.setColor(Color.white);
 		graphic.drawRect(5, 5, 200, 50);
 		
@@ -322,6 +338,14 @@ public class waterGame extends Canvas implements Runnable {
 	public void setSodaCount(int sodaCount) {
 		SodaCount = sodaCount;
 	}
+	
+	public int getSodaConsumed() {
+		return SodaConsumed;
+	}
+
+	public void setSodaConsumed(int sodaConsumed) {
+		SodaConsumed = sodaConsumed;
+	}
 
 	public int getWbCount() {
 		return WbCount;
@@ -331,6 +355,13 @@ public class waterGame extends Canvas implements Runnable {
 		WbCount = wbCount;
 	}
 	
+	public int getWbConsumed() {
+		return WbConsumed;
+	}
+
+	public void setWbConsumed(int wbConsumed) {
+		WbConsumed = wbConsumed;
+	}
 	
 /*	//Rectangle is rendered in each of their own render() for testing collision properly
 	public void checkCollision() {

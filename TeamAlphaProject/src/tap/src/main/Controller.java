@@ -171,7 +171,7 @@ public class Controller {
 	{
 		for(int i=0;i<WbCount;i++)
 		{
-			addEntity(new WaterBottle(r.nextInt(640),-10,text));
+			addEntity(new WaterBottle(r.nextInt(640),-10,text, this, game));
 		}
 	}
 

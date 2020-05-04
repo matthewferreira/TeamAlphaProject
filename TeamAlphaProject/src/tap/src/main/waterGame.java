@@ -37,9 +37,9 @@ public class waterGame extends Canvas implements Runnable {
 	
 	private boolean currently_shooting=false;
 	
-	private int VmCount=3;
+	private int VmCount=5;
 	private int VmKilled=0;
-	private int SodaCount=5;
+	private int SodaCount=3;
 	private int WbCount=1;
 
 	
@@ -175,7 +175,7 @@ public class waterGame extends Canvas implements Runnable {
 		{
 			VmCount = VmCount + 2;
 			VmKilled = 0;
-
+			c.addVm(VmCount);
 		}
 	}
 	

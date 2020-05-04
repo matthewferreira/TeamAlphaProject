@@ -41,6 +41,7 @@ public class VendingMachine extends GameObject implements Foe {
 			{
 				c.removeEntity(tempEnt);
 				c.removeEntity(this);
+				game.setVmKilled(game.getVmKilled()+1);
 			}
 			
 		}

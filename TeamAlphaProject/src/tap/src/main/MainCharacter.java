@@ -142,3 +142,5 @@ public class MainCharacter extends GameObject implements Ally {
 	}
 
 }
+
+/* just added this to commit final game mechanism */

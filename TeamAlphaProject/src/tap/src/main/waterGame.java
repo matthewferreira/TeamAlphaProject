@@ -37,12 +37,14 @@ public class waterGame extends Canvas implements Runnable {
 	
 	private boolean currently_shooting=false;
 	
-	private int VmCount=5;
+	private int VmCount=2;
 	private int VmKilled=0;
 	private int SodaCount=3;
 	private int SodaConsumed=0;
 	private int WbCount=1;
 	private int WbConsumed=0;
+	
+
 
 	
 	private MainCharacter mc;
@@ -56,7 +58,7 @@ public class waterGame extends Canvas implements Runnable {
 	public LinkedList<PowerUp> pu;
 	public LinkedList<PowerDown> pd;
 	
-	public static final Color Light_Blue = new Color(51,204,255);
+
 	
 	
 	public static int HEALTH = 100 * 2;
@@ -188,10 +190,15 @@ public class waterGame extends Canvas implements Runnable {
 
 		}
 		
-		if(SodaConsumed >= SodaCount) {
+		if(WbConsumed > WbCount) {
 			SodaCount = SodaCount + 1;
+			WbConsumed = 0;
+			c.addSoda(1);
+		}
+		
+		if(SodaConsumed >=1) {
 			SodaConsumed = 0;
-			c.addSoda(SodaCount);
+			c.addSoda(1);
 		}
 		
 		if(HEALTH <= 0) {
@@ -229,7 +236,7 @@ public class waterGame extends Canvas implements Runnable {
 		{
 			if(State == STATE.MENU) {
 				menu.render(graphic);
-			} else {
+			} else {	
 				lose.render(graphic);
 			}
 			

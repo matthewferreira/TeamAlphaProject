@@ -12,6 +12,7 @@ public class WaterBottle extends GameObject implements PowerUp {
 	Random r= new Random();
 	waterGame game;
 	Controller c;
+	Animation anim;
 	
 	public WaterBottle(double x,double y,Textures text, Controller c, waterGame game)
 	{
@@ -19,6 +20,7 @@ public class WaterBottle extends GameObject implements PowerUp {
 		this.text=text;
 		this.game=game;
 		this.c=c;
+		anim=new Animation(5,text.water[0],text.water[1]);
 	}
 	
 	public void tick()
@@ -35,12 +37,12 @@ public class WaterBottle extends GameObject implements PowerUp {
 			c.removeEntity(this);
 			game.setWbCount(game.getWbCount()-1);
 		}
+		anim.runAnimation();
 	}
 	
 	public void render(Graphics graphic)
 	{
-		graphic.drawImage(text.water,(int)x,(int)y,null);
-		graphic.drawRect((int)x, (int)y, 32, 32); // change 32 to 16
+		anim.drawAnimation(graphic, x, y, 0);
 	}
 	
 	public Rectangle getBounds() {

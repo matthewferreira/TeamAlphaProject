@@ -13,6 +13,7 @@ public class VendingMachine extends GameObject implements Foe {
 	Random r= new Random();
 	private waterGame game;
 	private Controller c;
+	Animation anim;
 	
 	public VendingMachine(double x,double y,Textures text, Controller c, waterGame game)
 	{
@@ -20,6 +21,8 @@ public class VendingMachine extends GameObject implements Foe {
 		this.text=text;
 		this.c = c;
 		this.game = game;
+		
+		anim=new Animation(5,text.vending[0],text.vending[1]);
 	}
 	
 	public void tick()
@@ -45,13 +48,14 @@ public class VendingMachine extends GameObject implements Foe {
 			}
 			
 		}
+		anim.runAnimation();
 	
 	}
 	
 	public void render(Graphics graphic)
 	{
-		graphic.drawImage(text.vending,(int)x,(int)y,null);
-		graphic.drawRect((int)x, (int)y, 32, 32);
+		anim.drawAnimation(graphic, x, y, 0);
+
 	}
 	
 	public Rectangle getBounds() {

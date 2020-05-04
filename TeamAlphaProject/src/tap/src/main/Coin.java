@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import tap.src.main.classes.Ally;
-import tap.src.main.classes.Foe;
+
 
 
 public class Coin extends GameObject implements Ally {

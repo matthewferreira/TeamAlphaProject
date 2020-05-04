@@ -25,7 +25,7 @@ public class Menu {
 		//Title
 		g.setFont(fnt0);
 		g.setColor(Color.white);
-		g.drawString("HYDRATION SIMULATOR", 13, 100);
+		g.drawString("HYDRATION SIMULATOR", 50, 100);
 	
 		//Play Button
 		g.setFont(fnt1);

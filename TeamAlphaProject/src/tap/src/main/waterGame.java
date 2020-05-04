@@ -56,6 +56,8 @@ public class waterGame extends Canvas implements Runnable {
 	public LinkedList<PowerUp> pu;
 	public LinkedList<PowerDown> pd;
 	
+	public static final Color Light_Blue = new Color(51,204,255);
+	
 	
 	public static int HEALTH = 100 * 2;
 
@@ -218,7 +220,7 @@ public class waterGame extends Canvas implements Runnable {
 		
 		graphic.setColor(Color.red);
 		graphic.fillRect(5, 5, 200, 50);
-		graphic.setColor(Color.green);
+		graphic.setColor(Color.Light_Blue);
 		graphic.fillRect(5, 5, HEALTH, 50);
 		graphic.setColor(Color.white);
 		graphic.drawRect(5, 5, 200, 50);

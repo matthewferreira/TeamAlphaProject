@@ -25,7 +25,7 @@ public class GameOver {
 		//Title
 		g.setFont(fnt0);
 		g.setColor(Color.white);
-		g.drawString("Game Over", 13, 100);
+		g.drawString("Game Over", 200, 100);
 	
 		//Play Button
 		g.setFont(fnt1);

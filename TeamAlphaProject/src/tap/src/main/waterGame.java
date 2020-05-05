@@ -195,7 +195,7 @@ public class waterGame extends Canvas implements Runnable {
 			c.addSoda(1);
 		}
 		
-		if(SodaConsumed >=1) {
+		if(SodaConsumed ==1) {
 			SodaConsumed = 0;
 			c.addSoda(1);
 		}
